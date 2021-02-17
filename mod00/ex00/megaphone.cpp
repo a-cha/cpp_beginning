@@ -12,7 +12,8 @@ int main(int ac, char **av)
 		for (int i = 1; i < ac; i++)
 		{
 			std::string str(av[i]);
-			std::cout << std::uppercase << str;
+			for (size_t j = 0; j < str.length(); j++)
+				std::cout << (char)toupper(str[j]);
 		}
 		std::cout << std::endl;
 	}
