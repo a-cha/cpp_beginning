@@ -8,7 +8,16 @@
 
 class Fixed
 {
-
+private:
+	int rawBits;
+	static const int fractBits = 8;
+public:
+	Fixed();
+	Fixed(const Fixed &copyFrom);
+	Fixed &operator=(const Fixed &copyFrom);
+	virtual ~Fixed();
+	int getRawBits() const;
+	void setRawBits(int const raw);
 };
 
 
