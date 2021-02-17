@@ -14,11 +14,13 @@ private:
 	static const int fractBits = 8;
 public:
 	Fixed();
-	Fixed(const Fixed& other);
-	Fixed& operator=(const Fixed& other);
 	explicit Fixed(const int value);
 	explicit Fixed(const float value);
+	Fixed(const Fixed& other);
 	virtual ~Fixed();
+
+	Fixed& operator=(const Fixed& other);
+
 	int getRawBits() const;
 	void setRawBits(const int raw);
 	int toInt() const;
