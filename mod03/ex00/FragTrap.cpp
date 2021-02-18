@@ -3,11 +3,11 @@
 //
 
 #include "FragTrap.hpp"
-#include <iostream>
+#include "print.hpp"
 
 FragTrap::FragTrap(const std::string &name)
 {
-	std::cout << "Default constructor called\n";
+	std::cout << BLUE "FR4G-TP" STD << " has constructed\n";
 	this->name = name;
 	this->hitPoints = 100;
 	this->maxHitPoints = 100;
@@ -21,7 +21,7 @@ FragTrap::FragTrap(const std::string &name)
 
 FragTrap::~FragTrap()
 {
-	std::cout << "Destructor called\n";
+	std::cout << BLUE "FR4G-TP" STD << " has destructed\n";
 }
 
 FragTrap::FragTrap(const FragTrap &other)
@@ -48,16 +48,16 @@ FragTrap &FragTrap::operator=(const FragTrap &other)
 
 void FragTrap::rangedAttack(const std::string &target)
 {
-	std::cout << "FR4G-TP <" << this->name << "> attacks <" <<
-			  target << "> at range, causing <" <<
-			  this->rangedAttackDamage << "> points of damage!" << std::endl;
+	std::cout << BLUE "FR4G-TP <" << this->name << ">" STD <<
+			  " attacks <" BLUE << target << STD "> at range, causing <" <<
+			  RED << this->rangedAttackDamage << STD << "> points of damage!" << std::endl;
 }
 
 void FragTrap::meleeAttack(const std::string &target)
 {
-	std::cout << "FR4G-TP <" << this->name << "> attacks melee <" <<
-			  target << ">, causing <" <<
-			  this->meleeAttackDamage << "> points of damage!" << std::endl;
+	std::cout << BLUE "FR4G-TP <" << this->name << ">" STD <<
+			  " attacks melee <" BLUE << target << STD ">, causing <" <<
+			  RED << this->meleeAttackDamage << STD << "> points of damage!" << std::endl;
 }
 
 void FragTrap::takeDamage(unsigned int amount)
@@ -66,13 +66,14 @@ void FragTrap::takeDamage(unsigned int amount)
 	{
 		if (armorDamageReduction < amount)
 			this->hitPoints -= (amount - armorDamageReduction);
-		std::cout << "FR4G-TP <" << this->name << "> still alive with <" <<
-				  this->hitPoints  << "> hit points" << std::endl;
+		std::cout << BLUE "FR4G-TP <" << this->name << ">" STD << " still alive with <" <<
+				  GREEN << this->hitPoints << STD "> hit points" << std::endl;
 	}
 	else
 	{
 		hitPoints = 0;
-		std::cout << "FR4G-TP <" << this->name << "> is about to die" << std::endl;
+		std::cout << BLUE "FR4G-TP <" << this->name << ">" STD <<
+				  RED " is about to die" STD << std::endl;
 	}
 }
 
@@ -81,8 +82,8 @@ void FragTrap::beRepaired(unsigned int amount)
 	hitPoints += amount;
 	if (hitPoints > maxHitPoints)
 		hitPoints = maxHitPoints;
-	std::cout << "FR4G-TP <" << this->name << "> has been repaired for <" <<
-			  amount << "> points" << std::endl;
+	std::cout << BLUE "FR4G-TP <" << this->name << ">" STD <<
+			  " has been repaired for <" GREEN << amount << STD "> points" << std::endl;
 }
 
 std::string FragTrap::phrasesSet[FragTrap::phrasesNbr] =
@@ -96,9 +97,9 @@ std::string FragTrap::phrasesSet[FragTrap::phrasesNbr] =
 
 void FragTrap::vaulthunterAttack(const std::string &target, const int damage)
 {
-	std::cout << "FR4G-TP <" << this->name << "> vaulthuntering attacks <" <<
-			  target << ">, causing <" <<
-			  damage << "> points of damage!" << std::endl;
+	std::cout << BLUE "FR4G-TP <" << this->name << ">" STD <<
+			  " vaulthuntering attacks <" BLUE << target << STD ">, causing <" <<
+			  RED << damage << STD << "> points of damage!" << std::endl;
 }
 
 void FragTrap::vaulthunter_dot_exe(const std::string &target)
@@ -106,9 +107,8 @@ void FragTrap::vaulthunter_dot_exe(const std::string &target)
 	if (this->energyPoints >= 25)
 	{
 		this->energyPoints -= 25;
-		srand(time(nullptr));
 		std::cout << phrasesSet[rand() % 5] << std::endl;
-		vaulthunterAttack(target, rand() % 25 + 10);
+		vaulthunterAttack(target, rand() % 10 + 10);
 	}
 	else
 		std::cout << "FR4G-TP <" << this->name <<
