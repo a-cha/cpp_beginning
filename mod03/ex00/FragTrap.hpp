@@ -19,6 +19,10 @@ private:
 	unsigned int meleeAttackDamage;
 	unsigned int rangedAttackDamage;
 	unsigned int armorDamageReduction;
+
+	static const int phrasesNbr = 5;
+	static std::string phrasesSet[FragTrap::phrasesNbr];
+	void vaulthunterAttack(const std::string &target, const int damage);
 public:
 	explicit FragTrap(const std::string& name);
 	FragTrap(const FragTrap& other);

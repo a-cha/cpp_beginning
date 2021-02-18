@@ -66,9 +66,14 @@ void FragTrap::takeDamage(unsigned int amount)
 	{
 		if (armorDamageReduction < amount)
 			this->hitPoints -= (amount - armorDamageReduction);
+		std::cout << "FR4G-TP <" << this->name << "> still alive with <" <<
+				  this->hitPoints  << "> hit points" << std::endl;
 	}
 	else
+	{
 		hitPoints = 0;
+		std::cout << "FR4G-TP <" << this->name << "> is about to die" << std::endl;
+	}
 }
 
 void FragTrap::beRepaired(unsigned int amount)
@@ -76,9 +81,36 @@ void FragTrap::beRepaired(unsigned int amount)
 	hitPoints += amount;
 	if (hitPoints > maxHitPoints)
 		hitPoints = maxHitPoints;
+	std::cout << "FR4G-TP <" << this->name << "> has been repaired for <" <<
+			  amount << "> points" << std::endl;
+}
+
+std::string FragTrap::phrasesSet[FragTrap::phrasesNbr] =
+{
+	"Na!",
+	"Poluchi!",
+	"Sha kak dam!",
+	"Lovi!",
+	"Tibe kranty!"
+};
+
+void FragTrap::vaulthunterAttack(const std::string &target, const int damage)
+{
+	std::cout << "FR4G-TP <" << this->name << "> vaulthuntering attacks <" <<
+			  target << ">, causing <" <<
+			  damage << "> points of damage!" << std::endl;
 }
 
 void FragTrap::vaulthunter_dot_exe(const std::string &target)
 {
-
+	if (this->energyPoints >= 25)
+	{
+		this->energyPoints -= 25;
+		srand(time(nullptr));
+		std::cout << phrasesSet[rand() % 5] << std::endl;
+		vaulthunterAttack(target, rand() % 25 + 10);
+	}
+	else
+		std::cout << "FR4G-TP <" << this->name <<
+				  "> hasn't enough energy points for VAULTHUNTER attack" << std::endl;
 }
