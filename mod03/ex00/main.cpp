@@ -15,6 +15,8 @@ int main()
 	robo.takeDamage(70);
 	robo.beRepaired(60);
 	robo.vaulthunter_dot_exe(target);
+	robo.vaulthunter_dot_exe(target);
+	robo.vaulthunter_dot_exe(target);
 	std::cout << BOLD "Ohh... That was good\n" << STD;
 	return 0;
 }
