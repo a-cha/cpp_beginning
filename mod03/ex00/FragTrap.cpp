@@ -111,6 +111,6 @@ void FragTrap::vaulthunter_dot_exe(const std::string &target)
 		vaulthunterAttack(target, rand() % 10 + 10);
 	}
 	else
-		std::cout << "FR4G-TP <" << this->name <<
-				  "> hasn't enough energy points for VAULTHUNTER attack" << std::endl;
+		std::cout << BLUE "FR4G-TP <" << this->name << ">" STD 
+				  " hasn't enough energy points for VAULTHUNTER attack" << std::endl;
 }
