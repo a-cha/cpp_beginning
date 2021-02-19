@@ -6,6 +6,8 @@
 #include <iostream>
 
 #define ZOMBIE_NUM (3)
+#define BOLD "\033[1m"
+#define STD "\033[0m"
 
 static void lunch(Zombie *pZombie1[ZOMBIE_NUM], Zombie *pZombie2[ZOMBIE_NUM]);
 static void anotherTeam();
@@ -16,7 +18,7 @@ int main()
 	Zombie		*pZombie1[ZOMBIE_NUM];
 	Zombie		*pZombie2[ZOMBIE_NUM];
 
-	std::cout << "- Pals, introduce yourself\n";
+	std::cout << BOLD "- Pals, introduce yourself\n" STD;
 	event.setZombieType("freaky");
 	for (int i = 0; i < ZOMBIE_NUM; i++)
 		pZombie1[i] = event.randomChump();
@@ -28,14 +30,14 @@ int main()
 		delete pZombie1[i];
 	for (int i = 0; i < ZOMBIE_NUM; i++)
 		delete pZombie2[i];
-	std::cout << "- And what about the problem of fathers and children?\n";
+	std::cout << BOLD "- And what about the problem of fathers and children?\n" STD;
 	anotherTeam();
 	return 0;
 }
 
 static void lunch(Zombie *pZombie1[ZOMBIE_NUM], Zombie *pZombie2[ZOMBIE_NUM])
 {
-	std::cout << "- Mmmm, time to lunch!\n";
+	std::cout << BOLD "- Mmmm, time to lunch!\n" STD;
 	for (int i = 0; i < ZOMBIE_NUM; i++)
 	{
 		std::cout << pZombie1[i]->getType() << " " << pZombie1[i]->getName() <<

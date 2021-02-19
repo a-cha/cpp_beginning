@@ -11,7 +11,7 @@ Zombie::Zombie(const std::string &name, const std::string &type)
 	this->type = type;
 }
 
-Zombie::Zombie() : type(std::string()), name(std::string()) { }
+Zombie::Zombie() : name(std::string()) { }
 
 Zombie::~Zombie() { }
 

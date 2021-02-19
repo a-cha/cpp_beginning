@@ -4,6 +4,8 @@
 
 #include "ZombieHorde.hpp"
 #include <iostream>
+#define BOLD "\033[1m"
+#define STD "\033[0m"
 
 ZombieHorde::ZombieHorde(int n)
 {
@@ -14,12 +16,13 @@ ZombieHorde::ZombieHorde(int n)
 		zombieHorde[i].setType(type);
 		zombieHorde[i].setName(Zombie::chooseRandomName());
 	}
+	std::cout << BOLD "Horde of zombies created\n" STD;
 }
 
 ZombieHorde::~ZombieHorde()
 {
 	delete [] zombieHorde;
-	std::cout << "Horde of zombies deleted\n";
+	std::cout << BOLD "Horde of zombies deleted\n" STD;
 }
 
 void ZombieHorde::announce()

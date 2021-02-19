@@ -6,9 +6,15 @@
 #include <iostream>
 #include <fstream>
 
-// This define created for CLion's CMake
-// Comment it while using program in terminal by Makefile
-#define CURRENT_DIR "/Users/antoncaparin/21/c++_module/mod01/ex07/"
+#define GREEN "\033[32m"
+#define STD "\033[0m"
+
+/*
+ * This define created for CLion's CMake
+ * Change the lines below while using program in terminal by Makefile
+*/
+//#define CURRENT_DIR "/Users/antoncaparin/21/c++_module/mod01/ex07/"
+#define CURRENT_DIR ""
 
 void sed(const std::string &origName, const std::string &search, const std::string &repl)
 {
@@ -17,7 +23,8 @@ void sed(const std::string &origName, const std::string &search, const std::stri
 
 	std::ifstream origFile(std::string() + CURRENT_DIR + origName);
 	if (!origFile)
-		throw "Unable open file";
+		throw "Unable open input file\n"
+		"Maybe, reading a main.cpp file will help you";
 	std::ofstream replFile(std::string() + CURRENT_DIR + origName + ".replace");
 	if (!replFile)
 		throw "Unable create file";
@@ -45,6 +52,7 @@ int main(int ac, char **av)
 			std::cerr << error << std::endl;
 			return -1;
 		}
+		std::cout << "Output file " GREEN << av[1] << ".replace" STD " created\n";
 	}
 	return 0;
 }

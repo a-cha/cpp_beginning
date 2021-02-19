@@ -6,15 +6,17 @@
 #include <iostream>
 #include <sstream>
 
-Brain::Brain() { }
+Brain::Brain()
+{
+	iq = 200;
+}
 
 Brain::~Brain() { }
 
 std::string Brain::identify() const
 {
 	std::stringstream ss;
-	long classAddr = (long)this;
 
-	ss << "0x" << std::uppercase << std::hex << classAddr;
+	ss << this;
 	return (ss.str());
 }
