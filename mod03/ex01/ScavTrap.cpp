@@ -102,5 +102,6 @@ void ScavTrap::challengeNewcomer(const std::string &target)
 	std::cout << "How much is ";
 	std::cout << phrasesSet[rand() % 5] << ":" << std::endl << "> ";
 	std::getline(std::cin, input);
-	std::cout << "Sorry, I can't count... So I'll trust your answer is right";
+	std::cout << "Sorry, I can't count... So I'll trust your answer is right, " <<
+				PURPLE << target << STD << std::endl;
 }
