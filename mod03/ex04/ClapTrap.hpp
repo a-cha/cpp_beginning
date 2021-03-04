@@ -22,11 +22,10 @@ protected:
 public:
 	ClapTrap();
 	ClapTrap(const ClapTrap& other);
-	~ClapTrap();
-//	virtual ~ClapTrap();
+	virtual ~ClapTrap();
 
 	ClapTrap& operator=(const ClapTrap& other);
-	std::string getName();
+	std::string const &getName();
 
 	virtual void rangedAttack(std::string const & target);
 	virtual void meleeAttack(std::string const & target);

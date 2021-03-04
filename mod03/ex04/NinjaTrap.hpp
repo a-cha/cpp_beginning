@@ -17,10 +17,7 @@ public:
 	explicit NinjaTrap(const std::string& name);
 	virtual ~NinjaTrap();
 
-	void ninjaShoebox(ClapTrap & target);
-	void ninjaShoebox(ScavTrap & target);
-	void ninjaShoebox(FragTrap & target);
-	void ninjaShoebox(NinjaTrap & target);
+	virtual void ninjaShoebox(ClapTrap & target);
 };
 
 

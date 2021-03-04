@@ -7,7 +7,7 @@
 
 ScavTrap::ScavTrap(const std::string &name)
 {
-	std::cout << PURPLE "ScavTrap" STD << " has constructed\n";
+	std::cout << BLUE "ScavTrap" STD << " has constructed\n";
 	this->name = name;
 	this->hitPoints = 100;
 	this->maxHitPoints = 100;
@@ -21,7 +21,7 @@ ScavTrap::ScavTrap(const std::string &name)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << PURPLE "ScavTrap" STD << " has destructed\n";
+	std::cout << BLUE "ScavTrap" STD << " has destructed\n";
 }
 
 std::string ScavTrap::phrasesSet[ScavTrap::phrasesNbr] =
@@ -35,7 +35,7 @@ std::string ScavTrap::phrasesSet[ScavTrap::phrasesNbr] =
 
 void ScavTrap::challengeMessage(const std::string &target)
 {
-	std::cout << PURPLE "ScavTrap <" << this->name << ">" STD <<
+	std::cout << BLUE "ScavTrap <" << this->name << ">" STD <<
 		" challenges newcomer <" BLUE << target << STD ">..." << std::endl;
 }
 
@@ -48,5 +48,5 @@ void ScavTrap::challengeNewcomer(const std::string &target)
 	std::cout << phrasesSet[rand() % 5] << ":" << std::endl << "> ";
 	std::getline(std::cin, input);
 	std::cout << "Sorry, I can't count... So I'll trust your answer is right, " <<
-				PURPLE << target << STD << std::endl;
+				BLUE << target << STD << std::endl;
 }

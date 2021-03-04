@@ -28,7 +28,6 @@ ClapTrap::~ClapTrap()
 	std::cout << BLUE "Parent ClapTrap" STD << " has destructed\n";
 }
 
-
 ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 {
 	if (this != &other)
@@ -86,7 +85,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 			  " has been repaired for <" GREEN << amount << STD "> points" << std::endl;
 }
 
-std::string ClapTrap::getName()
+std::string const &ClapTrap::getName()
 {
 	return name;
 }
