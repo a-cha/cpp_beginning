@@ -16,7 +16,7 @@ int main()
 	}
 	catch (std::exception & exc)
 	{
-		std::cerr << "First block error: " << exc.what() << std::endl;
+		std::cerr << RED "First block error: " << exc.what() << STD << std::endl;
 	}
 
 	std::cout << BOLD "Second block" STD << std::endl;
@@ -29,7 +29,7 @@ int main()
 	}
 	catch (std::exception & exc)
 	{
-		std::cerr << "Second block error: " << exc.what() << std::endl;
+		std::cerr << RED "Second block error: " << exc.what() << STD << std::endl;
 	}
 
 	std::cout << BOLD "Third block" STD << std::endl;
@@ -46,7 +46,7 @@ int main()
 	}
 	catch (std::exception & exc)
 	{
-		std::cerr << "Third block error: " << exc.what() << std::endl;
+		std::cerr << RED "Third block error: " << exc.what() << STD << std::endl;
 	}
 
 
@@ -63,7 +63,7 @@ int main()
 	}
 	catch (std::exception & exc)
 	{
-		std::cerr << "Forth block error: " << exc.what() << std::endl;
+		std::cerr << RED "Forth block error: " << exc.what() << STD << std::endl;
 	}
 	return 0;
 }
