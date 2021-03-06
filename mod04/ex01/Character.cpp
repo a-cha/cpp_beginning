@@ -56,10 +56,7 @@ void Character::attack(Enemy *enemy)
 				ap -= weapon->getAPCost();
 				enemy->takeDamage(weapon->getDamage());
 				if (enemy->getHP() == 0)
-				{
 					delete enemy;
-					enemy = nullptr;
-				}
 			} else
 				std::cout << "No enough action points for using "
 						  << weapon->getName() << std::endl;
