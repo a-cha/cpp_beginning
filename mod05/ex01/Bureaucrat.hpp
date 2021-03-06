@@ -6,6 +6,8 @@
 #ifndef BUREAUCRAT_GPP
 #define BUREAUCRAT_GPP
 
+#include "Form.hpp"
+class Form;
 #include <string>
 #include <iostream>
 
@@ -24,8 +26,10 @@ public:
 
 	std::string const & getName() const;
 	int getGrade() const;
+
 	void gradeIncrem();
 	void gradeDecrem();
+	void signForm(Form & form) const;
 
 	class GradeTooHighException : public std::exception { const char * what() const throw(); };
 	class GradeTooLowException : public std::exception { const char * what() const throw(); };

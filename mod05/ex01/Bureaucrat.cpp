@@ -56,6 +56,22 @@ void Bureaucrat::gradeDecrem()
 	grade++;
 }
 
+void Bureaucrat::signForm(Form & form) const
+{
+	form.beSigned(*this);
+	if (form.getIsSigned())
+		std::cout	<< "<" << getName() << "> signs <"
+					<< form.getName() << ">" << std::endl;
+	else
+	{
+		std::cout << "<" << getName() << "> cannot sign <"
+				  << form.getName()
+				  << "> because <bureaucrat doesn't have high enough grade>"
+				  << std::endl;
+		throw Form::GradeTooLowException();
+	}
+}
+
 std::ostream& operator<<(std::ostream &os, const Bureaucrat &other)
 {
 	os << "<" << other.getName() << ">, bureaucrat grade <" << other.getGrade() << ">";
@@ -64,10 +80,10 @@ std::ostream& operator<<(std::ostream &os, const Bureaucrat &other)
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return "Grade too high (max: 1)";
+	return "Bureaucrat: Grade too high";
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return "Grade too low (min: 150)";
+	return "Bureaucrat: Grade too low";
 }
