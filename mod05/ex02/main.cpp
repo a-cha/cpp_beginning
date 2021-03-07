@@ -112,7 +112,7 @@ int main()
 	{
 		Bureaucrat anthony("Anthony", 40);
 		std::cout << anthony << std::endl;
-		ShrubberyCreationForm tree("hame");
+		ShrubberyCreationForm tree("home");
 		std::cout << tree << std::endl;
 		anthony.signForm(tree);
 		anthony.executeForm(tree);
@@ -127,7 +127,7 @@ int main()
 	{
 		Bureaucrat ashlie("Ashlie", 20);
 		std::cout << ashlie << std::endl;
-		PresidentialPardonForm pardon("Capitol");
+		PresidentialPardonForm pardon("Galaxy");
 		std::cout << pardon << std::endl;
 		ashlie.signForm(pardon);
 		ashlie.executeForm(pardon);
