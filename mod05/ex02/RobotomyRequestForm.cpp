@@ -11,16 +11,9 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string &target) :
 
 void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
-	try
-	{
-		AForm::execute(executor);
-		std::cout << "DRR @##% DRR #%@ DRRRR" << std::endl;
-		std::cout << "<" << target << "> has been robotomized successfully 50% of the time" << std::endl;
-	}
-	catch (std::exception & exc)
-	{
-		std::cout << "<" << target << "> unable robotomized" << std::endl;
-//		TODO не получается выбросить тот полученный эксепшн
-		throw exc;
-	}
+	AForm::execute(executor);
+	std::cout << "DRR @##% DRR #%@ DRRRR" << std::endl;
+	std::cout << "<" << target
+			  << (rand() % 2 ? "> has been robotomized successfully"
+							 : "> unable robotomized") << std::endl;
 }

@@ -9,7 +9,7 @@
  * This define created for CLion's CMake
  * Change the lines below while using program in terminal by Makefile
 */
-#define CURRENT_DIR "/Users/antoncaparin/21/c++_module/mod05/ex02/"
+#define CURRENT_DIR "/Users/antoncaparin/21/cpp_module/mod05/ex02/"
 //#define CURRENT_DIR ""
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) :

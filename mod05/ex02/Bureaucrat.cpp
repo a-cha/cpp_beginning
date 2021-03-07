@@ -4,6 +4,7 @@
 //
 
 #include "Bureaucrat.hpp"
+#include "print.hpp"
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade) :
 	name(name)
@@ -58,21 +59,22 @@ void Bureaucrat::gradeDecrem()
 
 void Bureaucrat::signForm(AForm & form) const
 {
-	form.beSigned(*this);
-	if (form.getIsSigned())
+	try
+	{
+		form.beSigned(*this);
 		std::cout	<< "<" << getName() << "> signs <"
 					<< form.getName() << ">" << std::endl;
-	else
+	}
+	catch (std::exception & exc)
 	{
-		std::cout << "<" << getName() << "> cannot sign <"
-				  << form.getName()
-				  << "> because <bureaucrat hasn't enough grade>"
-				  << std::endl;
-		throw AForm::GradeTooLowException();
+		std::cout << RED "<" << getName() << "> cannot sign <"
+				  << form.getName() << "> because <bureaucrat hasn't enough grade>"
+				  << STD << std::endl;
+
 	}
 }
 
-void Bureaucrat::executeForm(const AForm &form)
+void Bureaucrat::executeForm(const AForm &form) const
 {
 	try
 	{
@@ -81,10 +83,8 @@ void Bureaucrat::executeForm(const AForm &form)
 	}
 	catch (std::exception & exc)
 	{
-		std::cout	<< "<" << getName() << "> can't executes <" << form.getName() << "> because <"
-					<< (form.getIsSigned() ? "bureaucrat hasn't enough grade>" :
-					"form isn't signed>") << std::endl;
-		throw exc;
+		std::cout	<< RED "<" << getName() << "> can't executes <" << form.getName()
+					<< "> because <" << exc.what() << ">" << STD << std::endl;
 	}
 }
 

@@ -30,7 +30,7 @@ public:
 	void gradeIncrem();
 	void gradeDecrem();
 	void signForm(AForm & form) const;
-	void executeForm(AForm const & form);
+	void executeForm(AForm const & form) const;
 
 	class GradeTooHighException : public std::exception { const char * what() const throw(); };
 	class GradeTooLowException : public std::exception { const char * what() const throw(); };

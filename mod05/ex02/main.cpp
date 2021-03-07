@@ -9,6 +9,8 @@
 
 int main()
 {
+	srand(time(nullptr));
+
 	std::cout << BOLD "First block" STD << std::endl;
 	try
 	{
@@ -140,7 +142,7 @@ int main()
 	{
 		Bureaucrat ken("Ken", 3);
 		std::cout << ken << std::endl;
-		PresidentialPardonForm pardon("Capitol");
+		PresidentialPardonForm pardon("Galaxy");
 		std::cout << pardon << std::endl;
 		ken.signForm(pardon);
 		ken.executeForm(pardon);
