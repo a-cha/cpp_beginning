@@ -77,6 +77,12 @@ void AForm::execute(const Bureaucrat &executor) const
 	if (!getIsSigned())
 		throw AForm::FormNotSignedException();
 }
+AForm *AForm::newForm(const std::string &target) const
+{
+	if (&target != nullptr)
+		return new AForm("", 0, 0);
+	return nullptr;
+}
 
 std::ostream& operator<<(std::ostream &os, const AForm &other)
 {

@@ -16,6 +16,7 @@ public:
 	explicit PresidentialPardonForm(const std::string & target);
 
 	void execute(Bureaucrat const & executor) const;
+	AForm *newForm(const std::string & t) const;
 };
 
 

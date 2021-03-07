@@ -14,3 +14,8 @@ void PresidentialPardonForm::execute(const Bureaucrat &executor) const
 	AForm::execute(executor);
 	std::cout << "<" << target << "> has been pardoned by Zafod Beeblebrox" << std::endl;
 }
+
+AForm *PresidentialPardonForm::newForm(const std::string & t) const
+{
+	return new PresidentialPardonForm(t);
+}

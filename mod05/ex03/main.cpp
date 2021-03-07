@@ -4,12 +4,15 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 #include "print.hpp"
 #include <iostream>
 
 int main()
 {
 	srand(time(nullptr));
+	Intern	randomNoname;
+	AForm	*pForm;
 
 	std::cout << BOLD "First block" STD << std::endl;
 	try
@@ -75,9 +78,9 @@ int main()
 	{
 		Bureaucrat chuck("Chuck", 135);
 		std::cout << chuck << std::endl;
-		ShrubberyCreationForm tree("home");
-		std::cout << tree << std::endl;
-		chuck.executeForm(tree);
+		pForm = randomNoname.makeForm("ShrubberyCreationForm", "home");
+		std::cout << *pForm << std::endl;
+		chuck.executeForm(*pForm);
 	}
 	catch (std::exception & exc)
 	{
@@ -91,16 +94,16 @@ int main()
 		std::cout << lindy << std::endl;
 		Bureaucrat loo("Loo", 40);
 		std::cout << loo << std::endl;
-		RobotomyRequestForm robot("Mars");
-		std::cout << robot << std::endl;
-		lindy.signForm(robot);
-		loo.executeForm(robot);
+		pForm = randomNoname.makeForm("RobotomyRequestForm", "Mars");
+		std::cout << *pForm << std::endl;
+		lindy.signForm(*pForm);
+		loo.executeForm(*pForm);
 		lindy.gradeIncrem();
 		lindy.gradeIncrem();
 		lindy.gradeIncrem();
 		lindy.gradeIncrem();
 		std::cout << lindy << std::endl;
-		lindy.executeForm(robot);
+		lindy.executeForm(*pForm);
 	}
 	catch (std::exception & exc)
 	{
@@ -112,10 +115,10 @@ int main()
 	{
 		Bureaucrat anthony("Anthony", 40);
 		std::cout << anthony << std::endl;
-		ShrubberyCreationForm tree("hame");
-		std::cout << tree << std::endl;
-		anthony.signForm(tree);
-		anthony.executeForm(tree);
+		pForm = randomNoname.makeForm("ShrubberyCreationForm", "home");
+		std::cout << *pForm << std::endl;
+		anthony.signForm(*pForm);
+		anthony.executeForm(*pForm);
 	}
 	catch (std::exception & exc)
 	{
@@ -127,10 +130,10 @@ int main()
 	{
 		Bureaucrat ashlie("Ashlie", 20);
 		std::cout << ashlie << std::endl;
-		PresidentialPardonForm pardon("Capitol");
-		std::cout << pardon << std::endl;
-		ashlie.signForm(pardon);
-		ashlie.executeForm(pardon);
+		pForm = randomNoname.makeForm("PresidentialPardonForm", "Galaxy");
+		std::cout << *pForm << std::endl;
+		ashlie.signForm(*pForm);
+		ashlie.executeForm(*pForm);
 	}
 	catch (std::exception & exc)
 	{
@@ -142,15 +145,17 @@ int main()
 	{
 		Bureaucrat ken("Ken", 3);
 		std::cout << ken << std::endl;
-		PresidentialPardonForm pardon("Galaxy");
-		std::cout << pardon << std::endl;
-		ken.signForm(pardon);
-		ken.executeForm(pardon);
+		pForm = randomNoname.makeForm("PresidentialPardonForm", "Galaxy");
+		std::cout << *pForm << std::endl;
+		ken.signForm(*pForm);
+		ken.executeForm(*pForm);
 	}
 	catch (std::exception & exc)
 	{
 		std::cerr << RED "Ninth block error: " << exc.what() << STD << std::endl;
 	}
+
+	delete pForm;
 
 	return 0;
 }

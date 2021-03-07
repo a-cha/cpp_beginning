@@ -34,6 +34,7 @@ public:
 
 	void beSigned(const Bureaucrat & signer);
 	virtual void execute(Bureaucrat const & executor) const;
+	virtual AForm *newForm(const std::string &target) const;
 
 	class GradeTooHighException : public std::exception { const char * what() const throw(); };
 	class GradeTooLowException : public std::exception { const char * what() const throw(); };

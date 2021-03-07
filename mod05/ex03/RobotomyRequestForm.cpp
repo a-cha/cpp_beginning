@@ -17,3 +17,8 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 			  << (rand() % 2 ? "> has been robotomized successfully"
 							 : "> unable robotomized") << std::endl;
 }
+
+AForm *RobotomyRequestForm::newForm(const std::string & t) const
+{
+	return new RobotomyRequestForm(t);
+}

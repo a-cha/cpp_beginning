@@ -9,8 +9,8 @@
  * This define created for CLion's CMake
  * Change the lines below while using program in terminal by Makefile
 */
-#define CURRENT_DIR "/Users/antoncaparin/21/cpp_module/mod05/ex02/"
-//#define CURRENT_DIR ""
+//#define CURRENT_DIR "/Users/antoncaparin/21/cpp_module/mod05/ex02/"
+#define CURRENT_DIR ""
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) :
 		AForm("ShrubberyCreationForm", 145, 137),
@@ -48,6 +48,11 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 	file << "`  `  ``  `  `  ``  `  ````/NNmmmmyo.  `  `  `  `  `  `  `  ``  `  `" << std::endl;
 	file << "`  `  ``  `  `  `  `  `  ``            `  `  `  `  `  `  `  `  `  `  `" << std::endl;
 	file.close();
+}
+
+AForm *ShrubberyCreationForm::newForm(const std::string & t) const
+{
+	return new ShrubberyCreationForm(t);
 }
 
 const char *ShrubberyCreationForm::ErrorCreateFileException::what() const throw()
