@@ -55,5 +55,5 @@ AForm *Intern::makeForm(const std::string &name, const std::string &target)
 
 const char *Intern::IncorrectFormNameException::what() const throw()
 {
-	return "Incorrect form name";
+	return "Intern: Incorrect form name";
 }

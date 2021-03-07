@@ -149,6 +149,7 @@ int main()
 		std::cout << *pForm << std::endl;
 		ken.signForm(*pForm);
 		ken.executeForm(*pForm);
+		pForm = randomNoname.makeForm("kek", "Galaxy");
 	}
 	catch (std::exception & exc)
 	{
