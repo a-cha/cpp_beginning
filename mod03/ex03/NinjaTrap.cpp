@@ -26,7 +26,7 @@ NinjaTrap::~NinjaTrap()
 
 void NinjaTrap::ninjaShoebox(ClapTrap &target)
 {
-	std::cout << "Mmm, that's Parent here! Hi, dad!" << std::endl;
+	std::cout << "Mmm, that's Parent here! Hi, " << target.getName() << std::endl;
 }
 
 void NinjaTrap::ninjaShoebox(ScavTrap &target)

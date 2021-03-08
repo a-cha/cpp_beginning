@@ -33,15 +33,3 @@ void SuperTrap::meleeAttack(const std::string &target)
 {
 	NinjaTrap::meleeAttack(target);
 }
-
-void SuperTrap::printAttrs()
-{
-	std::cout << hitPoints << std::endl;
-	std::cout << maxHitPoints << std::endl;
-	std::cout << energyPoints << std::endl;
-	std::cout << maxEnergyPoints << std::endl;
-	std::cout << level << std::endl;
-	std::cout << meleeAttackDamage << std::endl;
-	std::cout << rangedAttackDamage << std::endl;
-	std::cout << armorDamageReduction << std::endl;
-}

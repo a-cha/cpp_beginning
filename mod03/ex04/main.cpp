@@ -46,8 +46,6 @@ int main()
 	super.ninjaShoebox(robo);
 	super.vaulthunter_dot_exe(target);
 	std::cout << BOLD "In contrast to his (semi)child.\n" STD;
-	std::cout << BOLD "Super contain:\n" STD;
-	super.printAttrs();
 
 	return 0;
 }
