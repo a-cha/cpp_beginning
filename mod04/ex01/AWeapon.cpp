@@ -8,8 +8,8 @@
 
 AWeapon::AWeapon(const std::string &name, int apcost, int damage) :
 	name(name),
-	apcost(apcost),
-	damage(damage)
+	damage(damage),
+	apcost(apcost)
 { }
 
 AWeapon::AWeapon(const AWeapon &other)
