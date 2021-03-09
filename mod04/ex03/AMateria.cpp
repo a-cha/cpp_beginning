@@ -45,7 +45,7 @@ unsigned int AMateria::getXP() const
 	return _xp;
 }
 
-void AMateria::use(ICharacter &target)
+void AMateria::use(__attribute__((unused)) ICharacter &target)
 {
 	_xp	+= 10;
 }
