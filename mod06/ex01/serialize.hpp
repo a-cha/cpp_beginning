@@ -2,8 +2,8 @@
 // Created by Skipjack Adolph on 3/19/21.
 //
 
-#ifndef EX01_DESERIALIZE_HPP
-#define EX01_DESERIALIZE_HPP
+#ifndef EX01_SERIALIZE_HPP
+#define EX01_SERIALIZE_HPP
 
 #include <string>
 
@@ -14,4 +14,7 @@ typedef struct	s_data
 	std::string s2;
 }				Data;
 
-#endif //EX01_DESERIALIZE_HPP
+void	*serialize();
+Data	*deserialize(void * raw);
+
+#endif //EX01_SERIALIZE_HPP

@@ -2,16 +2,17 @@
 // Created by Skipjack Adolph on 3/19/21.
 //
 
-#include "deserialize.hpp"
+#include "serialize.hpp"
 #include <iostream>
-
-void	*serialize();
-Data	*deserialize(void * raw);
 
 int		main()
 {
-	Data * data = reinterpret_cast<Data *>(serialize());
+	Data * data = deserialize(serialize());
 
-	std::cout << data->s1 << data->i << data->s2 << std::endl;
+	std::cout << std::endl << "Result:" << std::endl
+			  << "s1: " << data->s1 << std::endl
+			  << "i: " << data->i << std::endl
+			  << "s2: " << data->s2 << std::endl;
+	delete data;
 	return 0;
 }
