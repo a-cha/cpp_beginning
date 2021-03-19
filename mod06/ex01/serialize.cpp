@@ -9,14 +9,13 @@
 
 void * serialize()
 {
-	static std::string	alphabet("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-	Data				*res = new Data;
+	Data	*res = new Data;
 
 	for (int i = 0; i < STR_LEN; i++)
-		res->s1 += alphabet[rand() % 52];
+		res->s1 += rand() % 26 + 'a';
 	res->i = rand();
 	for (int i = 0; i < STR_LEN; i++)
-		res->s2 += alphabet[rand() % 52];
+		res->s2 += rand() % 26 + 'a';
 	std::cout << "Serialize: " << std::endl
 			  << "s1: " << res->s1 << std::endl
 			  << "i: " << res->i << std::endl

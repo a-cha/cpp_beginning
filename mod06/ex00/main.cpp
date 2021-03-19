@@ -89,7 +89,7 @@ int main(int ac, char **av)
 		}
 	}
 //	DOUBLE
-	else if (value.find('.'))
+	else
 	{
 		double d = strtof(av[1], nullptr);
 
@@ -114,7 +114,5 @@ int main(int ac, char **av)
 			std::cout << "double: impossible" << std::endl;
 		}
 	}
-	else
-		std::cerr << "Incorrect input" << std::endl;
 	return 0;
 }
