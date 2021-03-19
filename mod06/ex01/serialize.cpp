@@ -5,13 +5,18 @@
 #include "serialize.hpp"
 #include <iostream>
 
+#define STR_LEN 10
+
 void * serialize()
 {
-	Data		*res = new Data;
+	static std::string	alphabet("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+	Data				*res = new Data;
 
-	res->s1 = "lol";
-	res->i = 5;
-	res->s2 = "kek";
+	for (int i = 0; i < STR_LEN; i++)
+		res->s1 += alphabet[rand() % 52];
+	res->i = rand();
+	for (int i = 0; i < STR_LEN; i++)
+		res->s2 += alphabet[rand() % 52];
 	std::cout << "Serialize: " << std::endl
 			  << "s1: " << res->s1 << std::endl
 			  << "i: " << res->i << std::endl

@@ -7,6 +7,8 @@
 
 int		main()
 {
+	srand(time(NULL));
+
 	Data * data = deserialize(serialize());
 
 	std::cout << std::endl << "Result:" << std::endl
