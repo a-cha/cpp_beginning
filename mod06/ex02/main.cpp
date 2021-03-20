@@ -9,17 +9,17 @@ Base * generate()
 {
 	if (rand() % 3 == 0)
 	{
-		std::cout << GREEN "Instance " BOLD "A" STD GREEN " created" << std::endl;
+		std::cout << GREEN BOLD "Instance A created" STD << std::endl;
 		return new A;
 	}
 	if (rand() % 3 == 1)
 	{
-		std::cout << GREEN "Instance " BOLD "B" STD GREEN " created" << std::endl;
+		std::cout << GREEN BOLD "Instance B created" STD << std::endl;
 		return new B;
 	}
 	else
 	{
-		std::cout << GREEN "Instance " BOLD "C" STD GREEN " created" << std::endl;
+		std::cout << GREEN BOLD "Instance C created" STD << std::endl;
 		return new C;
 	}
 }
@@ -36,21 +36,22 @@ void identify_from_pointer(Base * p)
 
 void identify_from_reference( Base & p)
 {
+	Base unused;
 	try
 	{
-		dynamic_cast<A &>(p);
+		unused = dynamic_cast<A &>(p);
 		std::cout << "It's " BOLD "A" STD << std::endl;
 	}
 	catch (...) { }
 	try
 	{
-		dynamic_cast<B &>(p);
+		unused = dynamic_cast<B &>(p);
 		std::cout << "It's " BOLD "B" STD << std::endl;
 	}
 	catch (...) { }
 	try
 	{
-		dynamic_cast<C &>(p);
+		unused = dynamic_cast<C &>(p);
 		std::cout << "It's " BOLD "C" STD << std::endl;
 	}
 	catch (...) { }
