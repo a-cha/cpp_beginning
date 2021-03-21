@@ -17,10 +17,7 @@ AWeapon::AWeapon(const AWeapon &other)
 	*this = other;
 }
 
-AWeapon::~AWeapon()
-{
-
-}
+AWeapon::~AWeapon() { }
 
 AWeapon &AWeapon::operator=(const AWeapon &other)
 {
