@@ -10,7 +10,6 @@
 
 class Span {
 public:
-	Span();
 	Span(unsigned int n);
 	Span(const Span & other);
 	virtual ~Span();
@@ -27,8 +26,8 @@ public:
 	template<class InputIterator>
 	void addNumber(InputIterator first, InputIterator last);
 
-	class OutOfBounds : public std::exception {
-		virtual const char * what() const throw() { return "Out od bounds"; }
+	class ArrayIsFull : public std::exception {
+		virtual const char * what() const throw() { return "Unable to add so much elements (out of max size)"; }
 	};
 	class NumAlreadyPresent : public std::exception {
 		virtual const char * what() const throw() { return "The number is already present"; }
@@ -38,7 +37,9 @@ public:
 	};
 
 private:
-	std::list<int> list;
+	Span() {};
+	std::list<int>	list;
+	size_t			maxLen;
 };
 
 #include "Span.ipp"

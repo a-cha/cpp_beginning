@@ -5,13 +5,10 @@
 #include "Span.hpp"
 #include <iostream>
 
-Span::Span() { }
-
-Span::Span(unsigned int n) {
-	list = std::list<int>(n);
+Span::Span(unsigned int n) :
+	maxLen(n) {
+	list = std::list<int>();
 }
-
-Span::~Span() { }
 
 Span::Span(const Span &other) {
 		*this = other;
@@ -19,9 +16,14 @@ Span::Span(const Span &other) {
 
 Span &Span::operator=(const Span &other) {
 	if (this != &other) {
+		this->maxLen = other.maxLen;
 		this->list = other.list;
 	}
 	return *this;
+}
+
+Span::~Span() {
+	list.clear();
 }
 
 void Span::addNumber(int newN) {
@@ -29,6 +31,8 @@ void Span::addNumber(int newN) {
 
 	if (it != list.end())
 		throw NumAlreadyPresent();
+	if (maxLen == getSize())
+		throw ArrayIsFull();
 	list.push_back(newN);
 }
 
