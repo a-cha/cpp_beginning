@@ -17,6 +17,8 @@ public:
 
 	Span & operator=(const Span & other);
 
+	std::list<int>::size_type getSize();
+
 	void addNumber(int newN);
 	size_t longestSpan();
 	size_t shortestSpan();

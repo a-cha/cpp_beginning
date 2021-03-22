@@ -47,14 +47,16 @@ size_t Span::shortestSpan() {
 		throw NothingToCompare();
 
 	std::list<int>::iterator itFirst = list.begin();
-	std::list<int>::iterator itSecond = list.begin()++;
+	std::list<int>::iterator itSecond = ++list.begin();
 
-	size_t diff = 0;
+	size_t diff = SIZE_T_MAX;
 	size_t curr;
 	while (itSecond != list.end()) {
 		if ((curr = std::abs(*itFirst - *itSecond)) < diff)
 			diff = curr;
-		}
+		itFirst++;
+		itSecond++;
+	}
 	return diff;
 }
 
@@ -62,4 +64,8 @@ void Span::printSpan() {
 	for (std::list<int>::iterator it = list.begin(); it != list.end(); it++) {
 		std::cout << *it << std::endl;
 	}
+}
+
+std::list<int>::size_type Span::getSize() {
+	return list.size();
 }
