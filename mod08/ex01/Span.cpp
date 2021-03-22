@@ -27,10 +27,6 @@ Span::~Span() {
 }
 
 void Span::addNumber(int newN) {
-	std::list<int>::iterator it = std::find(list.begin(), list.end(), newN);
-
-	if (it != list.end())
-		throw NumAlreadyPresent();
 	if (maxLen == getSize())
 		throw ArrayIsFull();
 	list.push_back(newN);
@@ -50,6 +46,7 @@ size_t Span::shortestSpan() {
 	if (list.size() < 2)
 		throw NothingToCompare();
 
+	list.sort();
 	std::list<int>::iterator itFirst = list.begin();
 	std::list<int>::iterator itSecond = ++list.begin();
 

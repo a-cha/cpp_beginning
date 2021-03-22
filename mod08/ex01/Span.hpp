@@ -27,10 +27,7 @@ public:
 	void addNumber(InputIterator first, InputIterator last);
 
 	class ArrayIsFull : public std::exception {
-		virtual const char * what() const throw() { return "Unable to add so much elements (out of max size)"; }
-	};
-	class NumAlreadyPresent : public std::exception {
-		virtual const char * what() const throw() { return "The number is already present"; }
+		virtual const char * what() const throw() { return "Unable to add this number elements (out of max size)"; }
 	};
 	class NothingToCompare : public std::exception {
 		virtual const char * what() const throw() { return "There are no numbers to compare"; }
