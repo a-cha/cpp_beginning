@@ -39,7 +39,7 @@ int main() {
 		}
 		std::cout << GREEN "Print from begin iterator" STD << std::endl;
 		MutantStack<int>::iterator it = mutant.begin();
-		for (int i = 0; i < mutant.size(); i++) {
+		for (MutantStack<int>::size_type i = 0; i < mutant.size(); i++) {
 			std::cout << *it << std::endl;
 			it++;
 		}
@@ -48,7 +48,7 @@ int main() {
 		mutant.pop();
 		std::cout << GREEN "Print from end iterator" STD << std::endl;
 		it = mutant.end();
-		for (int i = 0; i < mutant.size(); i++) {
+		for (MutantStack<int>::size_type i = 0; i < mutant.size(); i++) {
 			it--;
 			std::cout << *it << std::endl;
 		}
