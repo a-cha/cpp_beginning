@@ -23,10 +23,13 @@ public:
 	size_t shortestSpan();
 	void	printSpan();
 
-	template<class InputIterator>
-	void addNumber(InputIterator first, InputIterator last);
+//	template<class InputIterator>
+//	void addNumber(InputIterator first, InputIterator last);
 
-	class ArrayIsFull : public std::exception {
+	template<class Generator>
+    void addNumber(size_t amounth, Generator foo);
+
+    class ArrayIsFull : public std::exception {
 		virtual const char * what() const throw() { return "Unable to add this number elements (out of max size)"; }
 	};
 	class NothingToCompare : public std::exception {

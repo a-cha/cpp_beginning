@@ -3,7 +3,9 @@
 #include "print.hpp"
 #include <list>
 #include <vector>
-#define INSERT_LEN 11000
+#define INSERT_LEN 100000
+
+int     randNumberGenerator() { return rand() ; }
 
 int		main() {
 	srand(time(nullptr));
@@ -55,26 +57,22 @@ int		main() {
 	}
 	{
 		std::cout << std::endl << GREEN BOLD "Test insert" STD << std::endl;
-		Span span(11008);
-		std::vector<int> myVector(INSERT_LEN);
-		for (std::vector<int>::size_type i = 0; i < myVector.size(); i++) {
-			myVector[i] = rand();
-		}
 		try {
+			Span span(INSERT_LEN + 8);
 			span.addNumber(5);
-			span.addNumber(3);
+			span.addNumber(-20);
 			span.addNumber(15);
 			std::cout << "Span len before insert: " << span.getSize() << std::endl;
-			std::cout << "Inserting 11000 nodes..." << std::endl;
-			span.addNumber(myVector.begin(), myVector.end());
+			std::cout << "Inserting " << INSERT_LEN << " nodes..." << std::endl;
+            span.addNumber(INSERT_LEN, randNumberGenerator);
 			std::cout << "Span len after insert: " << span.getSize()
 					  << std::endl;
 			std::cout << "Shortest span: " << span.shortestSpan() << std::endl;
 			std::cout << "Longest span: " << span.longestSpan() << std::endl;
+//	    	span.printSpan();
 		} catch (std::exception &exc) {
 			std::cout << RED << exc.what() << STD << std::endl;
 		}
-//		span.printSpan();
 	}
 	return 0;
 }

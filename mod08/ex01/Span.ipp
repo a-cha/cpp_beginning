@@ -1,7 +1,10 @@
 
-template<class InputIterator>
-void Span::addNumber(InputIterator first, InputIterator last) {
-	if (getSize() + (last - first) > maxLen)
+template<class Generator>
+void Span::addNumber(size_t amounth, Generator randNum) {
+	if (getSize() + amounth > maxLen)
 		throw ArrayIsFull();
-	list.insert(list.end(), first, last);
+
+	std::list<int>::iterator end = --list.end();
+	list.insert(list.end(), amounth, 0);
+	std::generate(++end, list.end(), randNum);
 }
