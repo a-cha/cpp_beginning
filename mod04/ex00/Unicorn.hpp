@@ -11,7 +11,7 @@ class Unicorn : public Victim
 {
 public:
 	explicit Unicorn(const std::string& name);
-	~Unicorn();
+	virtual ~Unicorn();
 
 	void getPolymorphed() const;
 };

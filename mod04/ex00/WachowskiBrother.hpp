@@ -11,7 +11,7 @@ class WachowskiBrother : public Victim
 {
 public:
 	explicit WachowskiBrother(const std::string& name);
-	~WachowskiBrother();
+	virtual ~WachowskiBrother();
 
 	void getPolymorphed() const;
 };

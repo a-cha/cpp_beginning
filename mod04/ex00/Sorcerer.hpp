@@ -17,7 +17,7 @@ private:
 public:
 	Sorcerer(const std::string& name, const std::string& title);
 	Sorcerer(const Sorcerer& other);
-	~Sorcerer();
+	virtual ~Sorcerer();
 
 	Sorcerer& operator=(const Sorcerer& other);
 
